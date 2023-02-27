@@ -1,0 +1,12 @@
+#include "binary_trees.h"
+/**
+ * binary_tree_depth - Measures the depth of a node in the tree
+ * @tree: the pointer to the node to be measured
+ * Return: the tree's depth
+ */
+size_t binary_tree_depth(const binary_tree_t *tree)
+{
+	if (tree->parent == NULL)
+		return (0);
+	return (1 + binary_tree_depth(tree->parent));
+}
