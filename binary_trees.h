@@ -6,8 +6,10 @@
 #include <string.h>
 #include <math.h>
 #define bool int
+#define none -1
 #define true 1
 #define false 0
+
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -57,5 +59,8 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
+
+binary_tree_t *insert_right(binary_tree_t *parent, int value);
+binary_tree_t *insert_left(binary_tree_t *parent, int value);
 #endif /*BS_H*/
 
