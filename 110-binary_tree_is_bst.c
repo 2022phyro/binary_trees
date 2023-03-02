@@ -24,7 +24,7 @@ int b_st(const binary_tree_t *tree)
  * @tree: the tree being considered
  * Return: the tree's size
  */
-size_t sizes(const binary_tree_t * tree)
+size_t sizes(const binary_tree_t *tree)
 {
 	if (tree)
 		return (1 + (sizes(tree->left)) + sizes(tree->right));

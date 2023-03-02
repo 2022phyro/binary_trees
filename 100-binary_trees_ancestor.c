@@ -17,7 +17,8 @@ size_t deth(const binary_tree_t *tree)
  * @second: the second node
  * Return: a pointer to the l.c.a or null if none was found
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+		const binary_tree_t *second)
 {
 	if (first == NULL || second == NULL)
 		return (NULL);
