@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 /**
- * binary_tree_is_bst - Checks if a binary tree is a BST
+ * b_st - Checks if a binary tree is a BST
  * @tree: The tree to be checked
  * Return: 1 if it's a valid tree or 0 otherwise
  */
@@ -19,12 +19,25 @@ int b_st(const binary_tree_t *tree)
 	r = b_st(tree->right);
 	return (l & r);
 }
+/**
+ * sizes - this returns the size of a tree
+ * @tree: the tree being considered
+ * Return: the tree's size
+ */
 size_t sizes(const binary_tree_t * tree)
 {
 	if (tree)
 		return (1 + (sizes(tree->left)) + sizes(tree->right));
 	return (0);
 }
+/**
+ * tree_to_array - converts a tree to an array
+ *
+ * @tree: the tree to be convertes
+ * @arr: the array in question
+ * @siz: the array size
+ * Return: nothing it is void
+ */
 void tree_to_array(const binary_tree_t *tree, int *arr, int siz)
 {
 	binary_tree_t *queue[siz], *node;
@@ -41,6 +54,11 @@ void tree_to_array(const binary_tree_t *tree, int *arr, int siz)
 			queue[rear++] = node->right;
 	}
 }
+/**
+ * binary_tree_is_bst - Checks if a binary tree is a BST
+ * @tree: The tree to be checked
+ * Return: 1 if it's a valid tree or 0 otherwise
+ */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	int a, i, j, *arr;
