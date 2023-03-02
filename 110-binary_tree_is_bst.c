@@ -19,10 +19,10 @@ int bst(const binary_tree_t *tree)
 	r = bst(tree->right);
 	return (l & r);
 }
-size_t size(const binary_tree_t * tree)
+size_t sizes(const binary_tree_t * tree)
 {
 	if (tree)
-		return (1 + (size(tree->left)) + size(tree->right));
+		return (1 + (sizes(tree->left)) + sizes(tree->right));
 	return (0);
 }
 void tree_to_array(const binary_tree_t *tree, int *arr, int siz)
@@ -49,7 +49,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	a = size(tree);
+	a = sizes(tree);
 	arr = malloc(sizeof(int) * a);
 	tree_to_array(tree, arr, a);
 	for (i = 0; i < a; i++)
