@@ -4,20 +4,18 @@
  * @tree: The tree to be checked
  * Return: 1 if it's a valid tree or 0 otherwise
  */
-int b_st(const binary_tree_t *tree)
+int b_st(binary_tree_t *tree, binary_tree_t *prev)
 {
-	int l, r;
-
-	if (tree == NULL)
-		return (1);
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-	if ((tree->left && tree->left->n > tree->n) ||
-		(tree->right && tree->right->n < tree->n))
-		return (0);
-	l = b_st(tree->left);
-	r = b_st(tree->right);
-	return (l & r);
+	if (tree)
+	{
+		if (!(b_st(tree->left, prev)))
+			return (0);
+		if (prev != NULL && prev->n > tree->n)
+			return (0);
+		prev = tree;
+		return b_st(tree->right, prev);
+	}
+	return (1);
 }
 /**
  * sizes - this returns the size of a tree
@@ -79,5 +77,5 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 		}
 	}
 	free(arr);
-	return (b_st(tree));
+	return (b_st((binary_tree_t *)tree, NULL));
 }
