@@ -62,5 +62,6 @@ bst_t *bst_insert(bst_t **tree, int value);
 
 binary_tree_t *insert_right(binary_tree_t *parent, int value);
 binary_tree_t *insert_left(binary_tree_t *parent, int value);
+bst_t *array_to_bst(int *array, size_t size);
 #endif /*BS_H*/
 
