@@ -21,18 +21,18 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 {
 	if (first == NULL || second == NULL)
 		return (NULL);
-	if (deth(first) > deth(second))
+	if (deth(first) < deth(second))
 	{
-		while (deth(second) < deth(first))
+		while (deth(second) > deth(first))
 		{
 			second = second->parent;
 			if (second == first)
-				return ((binary_tree_t *)second);
+				return ((binary_tree_t *)first);
 		}
 	}
-	else if (deth(second) > deth(first))
+	else if (deth(second) < deth(first))
 	{
-		while (deth(first) < deth(second))
+		while (deth(first) > deth(second))
 		{
 			first = first->parent;
 			if (first == second)
