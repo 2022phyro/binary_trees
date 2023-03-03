@@ -9,7 +9,7 @@
 #define none -1
 #define true 1
 #define false 0
-
+#include <math.h>
 /**
  * struct binary_tree_s - Binary tree node
  *
@@ -32,6 +32,9 @@ typedef struct binary_tree_s heap_t;
 
 /* UTILITIES */
 void binary_tree_print(const binary_tree_t *tree);
+binary_tree_t *insert(binary_tree_t *parent, int value, bool arrow);
+size_t bee(binary_tree_t *tree);
+int dp_count(bst_t *root, int n);
 
 /* QUESTIONS IN ORDER*/
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
@@ -59,13 +62,11 @@ binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
-
 binary_tree_t *insert_right(binary_tree_t *parent, int value);
 binary_tree_t *insert_left(binary_tree_t *parent, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
-
-binary_tree_t *insert(binary_tree_t *parent, int value, bool arrow);
 bst_t *bst_remove(bst_t *root, int value);
+int binary_tree_is_avl(const binary_tree_t *tree);
 #endif /*BS_H*/
 

@@ -1,35 +1,40 @@
 #include "binary_trees.h"
+int dp_count(bst_t *root, int n);
 /**
- * b_st - Checks if a binary tree is a BST
+ * av_l - Checks if a binary tree is an AVL tree
  * @tree: The tree to be checked
  * Return: 1 if it's a valid tree or 0 otherwise
  */
-int b_st(binary_tree_t *tree, binary_tree_t *prev)
+int av_l(binary_tree_t *tree, binary_tree_t *prev)
 {
+	int l;
 	if (tree)
 	{
-		if (!(b_st(tree->left, prev)))
+		if (!(av_l(tree->left, prev)))
 			return (0);
 		if ((prev != NULL && prev->n >= tree->n) ||
 			(dp_count(tree, tree->n) > 1))
 			return (0);
+		l = bee(tree->left) - bee(tree->right);
+		if (!(l >= -1 && l <= 1))
+			return (0);
 		prev = tree;
-		return b_st(tree->right, prev);
+		return av_l(tree->right, prev);
 	}
 	return (1);
 }
 /**
- * binary_tree_is_bst - Checks if a binary tree is a BST
+ * binary_tree_is_avl - Checks if a binary tree is a BST
  * @tree: The tree to be checked
  * Return: 1 if it's a valid tree or 0 otherwise
  */
-int binary_tree_is_bst(const binary_tree_t *tree)
+int binary_tree_is_avl(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
-	return (b_st((binary_tree_t *)tree, NULL));
+	return (av_l((binary_tree_t *)tree, NULL));
 }
 /**
  * dp_count - this counts all occurences of a value in the tree
@@ -51,4 +56,24 @@ int dp_count(bst_t *root, int n)
 		return (r);
 	}
 	return (0);
+}
+/**
+ * bee - this measures the height of a tree
+ * @tree: the tree to be measured
+ * Return: the balance factor
+ */
+size_t bee(binary_tree_t *tree)
+{
+	size_t l = 1, r = 1;
+
+	if (tree)
+	{
+		if (tree->right)
+			r += bee(tree->right);
+		if (tree->left)
+			l += bee(tree->left);
+		return (l > r ? l : r);
+	}
+	return (0);
+
 }
