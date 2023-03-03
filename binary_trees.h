@@ -66,5 +66,6 @@ bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 
 binary_tree_t *insert(binary_tree_t *parent, int value, bool arrow);
+bst_t *bst_remove(bst_t *root, int value);
 #endif /*BS_H*/
 
