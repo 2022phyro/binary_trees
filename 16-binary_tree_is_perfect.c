@@ -26,7 +26,8 @@ int b_p(const binary_tree_t *tree, int d, int level)
 		return (d == level + 1);
 	if (tree->left == NULL || tree->right == NULL)
 		return (0);
-	return (b_p(tree->left, d, level + 1) && b_p(tree->right, d, level + 1));
+	return (b_p(tree->left, depth(tree->left), level + 1) &&
+		b_p(tree->right, depth(tree->right), level + 1));
 }
 /**
  * binary_tree_is_perfect - checks if a binary tree is perfect
