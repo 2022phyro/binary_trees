@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 /**
  * count - returns the number of nodes in the tree
- * 
+ *
  * @tree: The tree in question
- * @Return: the number of nodes
+ * Return: the number of nodes
  */
 int count(const binary_tree_t *tree)
 {
@@ -22,6 +22,7 @@ int count(const binary_tree_t *tree)
 int b_cmle(const binary_tree_t *tree, int i, int len)
 {
 	int k;
+
 	if (tree == NULL)
 		return (1);
 	if (i >= len)
@@ -31,18 +32,18 @@ int b_cmle(const binary_tree_t *tree, int i, int len)
 	return (k);
 }
 /**
- * binary_tree_is_complete - Checks if a tree is complete using the bcmle function
- *
- * @param tree: The tree being checked
+ * binary_tree_is_complete - Checks if a tree is complete using b_cmle
+ * @tree: The tree being checked
  * Return: 1 or 0 depending whether the tree is complete 
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	int len;
+
 	if (tree == NULL)
 		return (0);
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 	len = count(tree);
-	return b_cmle(tree, 0, len);
+	return (b_cmle(tree, 0, len));
 }

@@ -10,6 +10,7 @@ int dp_count(bst_t *root, int n);
 int av_l(binary_tree_t *tree, binary_tree_t *prev, bool x)
 {
 	int l;
+
 	if (tree && x == false)
 	{
 		if (!(av_l(tree->left, prev, x)))
@@ -21,7 +22,7 @@ int av_l(binary_tree_t *tree, binary_tree_t *prev, bool x)
 		if (!(l >= -1 && l <= 1))
 			return (0);
 		prev = tree;
-		return av_l(tree->right, prev, x);
+		return (av_l(tree->right, prev, x));
 	}
 	if (tree && x == true)
 	{
@@ -34,7 +35,7 @@ int av_l(binary_tree_t *tree, binary_tree_t *prev, bool x)
 		if (!(l >= -1 && l <= 1))
 			return (0);
 		prev = tree;
-		return av_l(tree->left, prev, x);
+		return (av_l(tree->left, prev, x));
 	}
 	return (1);
 }
@@ -56,7 +57,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
  * dp_count - this counts all occurences of a value in the tree
  *
  * @root: the tree
- * @value: the value
+ * @n: the value
  * Return: the total count
  */
 int dp_count(bst_t *root, int n)

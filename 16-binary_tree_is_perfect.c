@@ -8,6 +8,7 @@
 int ldepth(const binary_tree_t *tree)
 {
 	int d;
+
 	while (tree)
 	{
 		d++;

@@ -16,7 +16,7 @@ int b_st(binary_tree_t *tree, binary_tree_t *prev, bool x)
 			(dp_count(tree, tree->n) > 1))
 			return (0);
 		prev = tree;
-		return b_st(tree->right, prev, x);
+		return (b_st(tree->right, prev, x));
 	}
 	if (tree && x == true)
 	{
@@ -26,7 +26,7 @@ int b_st(binary_tree_t *tree, binary_tree_t *prev, bool x)
 			(dp_count(tree, tree->n) > 1))
 			return (0);
 		prev = tree;
-		return b_st(tree->left, prev, x);
+		return (b_st(tree->left, prev, x));
 	}
 	return (1);
 }
@@ -48,7 +48,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  * dp_count - this counts all occurences of a value in the tree
  *
  * @root: the tree
- * @value: the value
+ * @n: the value
  * Return: the total count
  */
 int dp_count(bst_t *root, int n)

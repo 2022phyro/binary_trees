@@ -9,6 +9,7 @@
 bst_t *bst_search(const bst_t *tree, int value)
 {
 	bst_t *temp;
+
 	if (tree == NULL)
 		return (NULL);
 	temp = (bst_t *)tree;
