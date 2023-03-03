@@ -8,7 +8,7 @@ int b_st(binary_tree_t *tree, binary_tree_t *prev)
 {
 	if (tree)
 	{
-		if (!(b_st(tree->left, prev)))
+		if ((b_st(tree->left, prev)) == 0)
 			return (0);
 		if ((prev != NULL && prev->n >= tree->n) ||
 			(dp_count(tree, tree->n) > 1))
