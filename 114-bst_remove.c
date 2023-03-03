@@ -10,16 +10,17 @@ bst_t *search(bst_t *tree, int value);
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *temp, *mark, *prev;
+	bst_t *temp, *mark;/*, *prev;*/
 
 	if (root == NULL)
 		return (NULL);
 	temp = search(root, value);
-	mark = find_s(temp);
-	prev = temp->parent;
+	mark = temp->parent;
+	printf("%d->%d\n", temp->n, mark->n);
+/*	prev = temp->parent;*/
 	if (temp == NULL)
 		return (NULL);
-	if (mark == NULL)
+/*	if (mark == NULL)
 	{
 		if (prev->left == temp)
 			prev->left = NULL;
@@ -50,7 +51,7 @@ bst_t *bst_remove(bst_t *root, int value)
 				mark->parent->right = NULL;
 			
 		}
-		mark->left = temp->left;
+		mark->left->left = temp->left;
 		mark->right = temp->right;
 		mark->parent = prev;
 		if (prev)
@@ -58,7 +59,7 @@ bst_t *bst_remove(bst_t *root, int value)
 		else
 			root = mark;
 	}
-	free(temp);
+	free(temp);*/
 	return (root);
 }
 bst_t *find_s(bst_t *node)
