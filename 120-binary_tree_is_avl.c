@@ -12,7 +12,7 @@ int av_l(binary_tree_t *tree, binary_tree_t *prev)
 	{
 		if (!(av_l(tree->left, prev)))
 			return (0);
-		if ((prev != NULL && prev->n >= tree->n) ||
+		if ((prev != NULL && prev->n > tree->n) ||
 			(dp_count(tree, tree->n) > 1))
 			return (0);
 		l = bee(tree->left) - bee(tree->right);

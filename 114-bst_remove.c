@@ -16,9 +16,6 @@ bst_t *bst_remove(bst_t *root, int value)
 		return (NULL);
 	temp = search(root, value);
 	mark = find_s(temp);
-	printf("Found %d\n", temp->n);
-	if (mark != NULL)
-		printf("Successor is %d\n", mark->n);
 	prev = temp->parent;
 	if (temp == NULL)
 		return (NULL);
