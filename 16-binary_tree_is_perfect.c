@@ -48,6 +48,6 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	return (b_p(tree, depth(tree), 0));
+	return (b_p(tree, ldepth(tree), 0));
 
 }

@@ -10,14 +10,13 @@ bst_t *search(bst_t *tree, int value);
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *temp, *mark, *prev;
+	bst_t *temp, *mark;
 
 	if (root == NULL)
 		return (NULL);
 	temp = search(root, value);
 	mark = find_s(temp); 
 	printf("%d->%d\n", temp->n, mark->n);
-	prev = temp->parent;
 	if (temp == NULL)
 		return (root);
 	mark->left = temp->left;
