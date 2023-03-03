@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+int dp_count(bst_t *root, int n);
 /**
  * b_st - Checks if a binary tree is a BST
  * @tree: The tree to be checked
@@ -10,7 +11,8 @@ int b_st(binary_tree_t *tree, binary_tree_t *prev)
 	{
 		if (!(b_st(tree->left, prev)))
 			return (0);
-		if (prev != NULL && prev->n >= tree->n)
+		if ((prev != NULL && prev->n >= tree->n) ||
+			(dp_count(tree, tree->n) > 1))
 			return (0);
 		prev = tree;
 		return b_st(tree->right, prev);
@@ -29,4 +31,18 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	if (tree->left == NULL && tree->right == NULL)
 		return (1);
 	return (b_st((binary_tree_t *)tree, NULL));
+}
+int dp_count(bst_t *root, int n)
+{
+	int r = 0;
+
+	if (root)
+	{
+		if (root->n == n)
+			r++;
+		r += dp_count(root->right, n);
+		r += dp_count(root->left, n);
+		return (r);
+	}
+	return (0);
 }
